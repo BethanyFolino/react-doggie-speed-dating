@@ -55,13 +55,15 @@ function App() {
       <h3>
         Press the arrow keys on your keyboard. Left to skip, Right to Adopt.
       </h3>
-      <section>
-        Current Dog
-        <img src={dog} width="300px" />
-        Time Remaining: {timeRemaining}
-        Adopted Dogs
+      <h4>Current Dog</h4>
+      <section className="current">
+        <img src={dog} width="300px" height="300px" />
+      </section>
+      <h4>Time Remaining: {timeRemaining}</h4>
+      <h4>Adopted Dogs</h4>
+      <section className="adopted">
         {adopted.map((dogUrl) => {
-          return <img src={dogUrl} width="200px" />;
+          return <img src={dogUrl} width="150px" height="150px" />;
         })}
       </section>
     </div>

@@ -1,2 +1,18 @@
-/* Your CSS Here */
+body {
+  background-color: teal;
+}
 
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.current {
+  align-items: center;
+}
+
+.adopted {
+  flex-wrap: wrap;
+}
