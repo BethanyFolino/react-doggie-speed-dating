@@ -1,13 +1,9 @@
 const { useState, useEffect } = React;
 
-// function getPhotoFromId(photoId) {
-//   return `"https://images.dog.ceo/breeds/labrador/n02099712_1987.jpg"`;
-// }
-
 function App() {
   // Your Code Here
   const [dog, setDog] = useState([]);
-  // const [adopted, adoptDog] = useState([]); - an array for adopted dogs to go into
+  const [adopted, adoptDog] = useState([]); //an array for adopted dogs to go into
 
   //componentDidMount
   useEffect(() => {
@@ -15,6 +11,29 @@ function App() {
       .then((res) => res.json())
       .then((data) => setDog(data.message));
   }, []);
+
+  const arrowKeys = (e) => {
+    if (e.code === "ArrowLeft") {
+      //move on to next dog
+      setDog(); //makes picture go away, but then it is stuck until refreshed
+    } else if (e.code === "ArrowRight") {
+      //put current dog picture in adopted array, then get new dog picture
+      adoptDog(adopted);
+      setDog();
+    }
+  };
+
+  //componentDidUpdate
+  useEffect(() => {
+    window.addEventListener("keydown", arrowKeys);
+  });
+
+  //componentWillUnmount
+  useEffect(() => {
+    return () => {
+      window.removeEventListener("keydown", arrowKeys);
+    };
+  });
 
   return (
     <div className="app">
@@ -25,6 +44,10 @@ function App() {
       <section>
         Current Dog
         <img src={dog} />
+      </section>
+      <section>
+        Adopted Dogs
+        <div>{adopted}</div>
       </section>
     </div>
   );
