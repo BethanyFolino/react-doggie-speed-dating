@@ -26,6 +26,7 @@ function App() {
       //put current dog picture in adopted array, then get new dog picture
 
       adoptDog([...adopted, dog]);
+      getNewDog();
     }
   };
 
