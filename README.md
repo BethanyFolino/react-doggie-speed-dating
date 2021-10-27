@@ -1,1 +1,2 @@
-# Doggie Speed Dating
+# React Doggie Speed Dating
+React Doggie Speed Dating is an app that allows users to look at one dog at a time, choose whether or not they would like to adopt the dog, then move on to the next dog. Adopted dogs appear in a section underneath the picture of the current dog. There is a timer in place that will automatically go to the next dog in 5 seconds if the user does not make a choice. This was a project I did as part of Kenzie Academy's software engineering program.
